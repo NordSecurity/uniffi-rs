@@ -14,7 +14,7 @@ jobs:
           rustup update
       - uses: Swatinem/rust-cache@v2
         with:
-          prefix-key: "v1-rust"
+          prefix-key: "v2-rust"
       - name: Build
         run: |
            # Disable debug info, because the job runs out of disk space
@@ -29,4 +29,6 @@ jobs:
           source ~/.bashrc
           # Disable debug info, because the job runs out of disk space
           RUSTFLAGS="-C debuginfo=0" cargo test || true
+          df -h
           du -sh target
+          du -sh --apparent-size target
