@@ -51,13 +51,18 @@ fflush(stdout)
 var counter = DispatchGroup()
 counter.enter()
 Task {
+    print("BBBBBBBBBBBBBBBBBBBB 1")
     // This async function comes from the `uniffi-one` crate
     let uniffiOneEnum = await getUniffiOneAsync()
+    print("BBBBBBBBBBBBBBBBBBBB 2")
     assert(uniffiOneEnum == UniffiOneEnum.one)
+    print("BBBBBBBBBBBBBBBBBBBB 3")
 
     // This async function comes from the `proc-macro-lib` crate
     let uniffiOneType = await getUniffiOneTypeAsync(t: UniffiOneType(sval: "hello"))
+    print("BBBBBBBBBBBBBBBBBBBB 4")
     assert(uniffiOneType.sval == "hello")
+    print("BBBBBBBBBBBBBBBBBBBB 5")
 
     counter.leave()
 }
