@@ -2,6 +2,10 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+print("AAAAAAAAAAAAA test_imported_types.swift")
+
+assert(false)
+
 import imported_types_lib
 import Foundation
 
