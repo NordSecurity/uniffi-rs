@@ -48,9 +48,8 @@ assert(getMaybeUniffiOneTypes(ts: [UniffiOneType(sval: "hello"), nil]) == [Uniff
 print("AAAAAAAAAAAAAAAAAAAAAAA 6")
 fflush(stdout)
 
-var counter = DispatchGroup()
+let semaphore = DispatchSemaphore(value: 0)
 print("AAAAAAAAAAAAAAAAAAAAAAA 6.1")
-counter.enter()
 print("AAAAAAAAAAAAAAAAAAAAAAA 6.2")
 Task {
     print("BBBBBBBBBBBBBBBBBBBB 1")
@@ -66,11 +65,11 @@ Task {
     assert(uniffiOneType.sval == "hello")
     print("BBBBBBBBBBBBBBBBBBBB 5")
 
-    counter.leave()
+    semaphore.signal()
     print("BBBBBBBBBBBBBBBBBBBB 6")
 }
 print("AAAAAAAAAAAAAAAAAAAAAAA 6.3")
-counter.wait()
+semaphore.wait()
 print("AAAAAAAAAAAAAAAAAAAAAAA 6.4")
 
 print("AAAAAAAAAAAAAAAAAAAAAAA 7")
