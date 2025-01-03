@@ -8,17 +8,6 @@ jobs:
         options: --user root
     steps:
       - uses: actions/checkout@v3
-      - name: Set rust version
-        run: |
-          rustup show
-          rustup update
-      - uses: Swatinem/rust-cache@v2
-        with:
-          prefix-key: "v2-rust"
-      - name: Build
-        run: |
-           # Disable debug info, because the job runs out of disk space
-           RUSTFLAGS="-C debuginfo=0" cargo build
       - name: Run tests
         shell: bash
         env:
@@ -28,7 +17,4 @@ jobs:
         run: |
           source ~/.bashrc
           # Disable debug info, because the job runs out of disk space
-          RUSTFLAGS="-C debuginfo=0" cargo test || true
-          df -h
-          du -sh target
-          du -sh --apparent-size target
+          RUSTFLAGS="-C debuginfo=0" cargo test
