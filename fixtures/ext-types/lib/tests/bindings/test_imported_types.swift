@@ -4,7 +4,7 @@
 
 print("AAAAAAAAAAAAA test_imported_types.swift")
 
-assert(false)
+// assert(false)
 
 import imported_types_lib
 import Foundation
