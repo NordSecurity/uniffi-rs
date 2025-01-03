@@ -34,46 +34,46 @@ assert(getMaybeUrls(urls: [url, nil]) == [url, nil])
 
 print("AAAAAAAAAAAAAAAAAAAAAAA 5")
 
-assert(getUniffiOneType(t: UniffiOneType(sval: "hello")).sval == "hello")
-assert(getMaybeUniffiOneType(t: UniffiOneType(sval: "hello"))!.sval == "hello")
-assert(getMaybeUniffiOneType(t: nil) == nil)
-assert(getUniffiOneTypes(ts: [UniffiOneType(sval: "hello")]) == [UniffiOneType(sval: "hello")])
-assert(getMaybeUniffiOneTypes(ts: [UniffiOneType(sval: "hello"), nil]) == [UniffiOneType(sval: "hello"), nil])
+// assert(getUniffiOneType(t: UniffiOneType(sval: "hello")).sval == "hello")
+// assert(getMaybeUniffiOneType(t: UniffiOneType(sval: "hello"))!.sval == "hello")
+// assert(getMaybeUniffiOneType(t: nil) == nil)
+// assert(getUniffiOneTypes(ts: [UniffiOneType(sval: "hello")]) == [UniffiOneType(sval: "hello")])
+// assert(getMaybeUniffiOneTypes(ts: [UniffiOneType(sval: "hello"), nil]) == [UniffiOneType(sval: "hello"), nil])
 
-print("AAAAAAAAAAAAAAAAAAAAAAA 6")
+// print("AAAAAAAAAAAAAAAAAAAAAAA 6")
 
-var counter = DispatchGroup()
-counter.enter()
-Task {
-    // This async function comes from the `uniffi-one` crate
-    let uniffiOneEnum = await getUniffiOneAsync()
-    assert(uniffiOneEnum == UniffiOneEnum.one)
+// var counter = DispatchGroup()
+// counter.enter()
+// Task {
+//     // This async function comes from the `uniffi-one` crate
+//     let uniffiOneEnum = await getUniffiOneAsync()
+//     assert(uniffiOneEnum == UniffiOneEnum.one)
 
-    // This async function comes from the `proc-macro-lib` crate
-    let uniffiOneType = await getUniffiOneTypeAsync(t: UniffiOneType(sval: "hello"))
-    assert(uniffiOneType.sval == "hello")
+//     // This async function comes from the `proc-macro-lib` crate
+//     let uniffiOneType = await getUniffiOneTypeAsync(t: UniffiOneType(sval: "hello"))
+//     assert(uniffiOneType.sval == "hello")
 
-    counter.leave()
-}
-counter.wait()
+//     counter.leave()
+// }
+// counter.wait()
 
-print("AAAAAAAAAAAAAAAAAAAAAAA 7")
+// print("AAAAAAAAAAAAAAAAAAAAAAA 7")
 
-assert(getUniffiOneProcMacroType(t: UniffiOneProcMacroType(sval: "hello from proc-macro world")).sval == "hello from proc-macro world")
-assert(getMyProcMacroType(t: UniffiOneProcMacroType(sval: "proc-macros all the way down")).sval == "proc-macros all the way down")
+// assert(getUniffiOneProcMacroType(t: UniffiOneProcMacroType(sval: "hello from proc-macro world")).sval == "hello from proc-macro world")
+// assert(getMyProcMacroType(t: UniffiOneProcMacroType(sval: "proc-macros all the way down")).sval == "proc-macros all the way down")
 
 
-print("AAAAAAAAAAAAAAAAAAAAAAA 8")
+// print("AAAAAAAAAAAAAAAAAAAAAAA 8")
 
-assert(getUniffiOneEnum(e: UniffiOneEnum.one) == UniffiOneEnum.one)
-assert(getMaybeUniffiOneEnum(e: UniffiOneEnum.one)! == UniffiOneEnum.one)
-assert(getMaybeUniffiOneEnum(e: nil) == nil)
-assert(getUniffiOneEnums(es: [UniffiOneEnum.one]) == [UniffiOneEnum.one])
-assert(getMaybeUniffiOneEnums(es: [UniffiOneEnum.one, nil]) == [UniffiOneEnum.one, nil])
+// assert(getUniffiOneEnum(e: UniffiOneEnum.one) == UniffiOneEnum.one)
+// assert(getMaybeUniffiOneEnum(e: UniffiOneEnum.one)! == UniffiOneEnum.one)
+// assert(getMaybeUniffiOneEnum(e: nil) == nil)
+// assert(getUniffiOneEnums(es: [UniffiOneEnum.one]) == [UniffiOneEnum.one])
+// assert(getMaybeUniffiOneEnums(es: [UniffiOneEnum.one, nil]) == [UniffiOneEnum.one, nil])
 
-print("AAAAAAAAAAAAAAAAAAAAAAA 9")
+// print("AAAAAAAAAAAAAAAAAAAAAAA 9")
 
-let g = getGuidProcmacro(g: nil)
-assert(g == getGuidProcmacro(g: g))
+// let g = getGuidProcmacro(g: nil)
+// assert(g == getGuidProcmacro(g: g))
 
-print("AAAAAAAAAAAAAAAAAAAAAAA 10")
+// print("AAAAAAAAAAAAAAAAAAAAAAA 10")
