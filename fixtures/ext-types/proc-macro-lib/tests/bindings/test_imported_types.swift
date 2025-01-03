@@ -49,7 +49,9 @@ print("AAAAAAAAAAAAAAAAAAAAAAA 6")
 fflush(stdout)
 
 var counter = DispatchGroup()
+print("AAAAAAAAAAAAAAAAAAAAAAA 6.1")
 counter.enter()
+print("AAAAAAAAAAAAAAAAAAAAAAA 6.2")
 Task {
     print("BBBBBBBBBBBBBBBBBBBB 1")
     // This async function comes from the `uniffi-one` crate
@@ -65,8 +67,11 @@ Task {
     print("BBBBBBBBBBBBBBBBBBBB 5")
 
     counter.leave()
+    print("BBBBBBBBBBBBBBBBBBBB 6")
 }
+print("AAAAAAAAAAAAAAAAAAAAAAA 6.3")
 counter.wait()
+print("AAAAAAAAAAAAAAAAAAAAAAA 6.4")
 
 print("AAAAAAAAAAAAAAAAAAAAAAA 7")
 fflush(stdout)
