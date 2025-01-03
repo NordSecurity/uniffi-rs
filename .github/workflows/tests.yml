@@ -16,6 +16,6 @@ jobs:
           HOME: /root
         run: |
           source ~/.bashrc
-          cd fixtures/ext-types/proc-macro-lib
+          cd fixtures/ext-types/lib
           # Disable debug info, because the job runs out of disk space
           RUSTFLAGS="-C debuginfo=0" cargo test
