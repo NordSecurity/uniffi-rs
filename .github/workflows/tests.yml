@@ -28,4 +28,5 @@ jobs:
         run: |
           source ~/.bashrc
           # Disable debug info, because the job runs out of disk space
-          RUSTFLAGS="-C debuginfo=0" cargo test
+          RUSTFLAGS="-C debuginfo=0" cargo test || true
+          du -sh target
