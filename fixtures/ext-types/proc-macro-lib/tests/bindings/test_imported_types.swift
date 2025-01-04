@@ -66,6 +66,7 @@ Task {
     print("BBBBBBBBBBBBBBBBBBBB 5")
 
     semaphore.signal()
+
     print("BBBBBBBBBBBBBBBBBBBB 6")
 }
 print("AAAAAAAAAAAAAAAAAAAAAAA 6.3")
@@ -94,4 +95,9 @@ let g = getGuidProcmacro(g: nil)
 assert(g == getGuidProcmacro(g: g))
 
 print("AAAAAAAAAAAAAAAAAAAAAAA 10")
+fflush(stdout)
+
+Thread.sleep(forTimeInterval: 1)
+
+print("AAAAAAAAAAAAAAAAAAAAAAA 11")
 fflush(stdout)
