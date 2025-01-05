@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export MSYS_NO_PATHCONV=1
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 ROOT_DIR="$SCRIPT_DIR/.."
 
@@ -17,4 +19,4 @@ docker run \
     -w /mounted_workdir/$(realpath -m --relative-to=$ROOT_DIR $PWD) \
     -e TERM="xterm-256color" \
     --group-add $(id -g) \
-    ghcr.io/nordsecurity/uniffi-rs-test-runner:v0.0.2 bash -i -c "umask 0002 && $*"
+    ghcr.io/nordsecurity/uniffi-rs-test-runner:v0.3.0 bash -i -c "umask 0002 && $*"

@@ -97,7 +97,7 @@ assert(g == getGuidProcmacro(g: g))
 print("AAAAAAAAAAAAAAAAAAAAAAA 10")
 fflush(stdout)
 
-Thread.sleep(forTimeInterval: 1)
+// Thread.sleep(forTimeInterval: 1)
 
-print("AAAAAAAAAAAAAAAAAAAAAAA 11")
-fflush(stdout)
+// print("AAAAAAAAAAAAAAAAAAAAAAA 11")
+// fflush(stdout)

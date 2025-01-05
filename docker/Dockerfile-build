@@ -5,7 +5,7 @@
 # This builds a docker image containing all the tools we need to run our
 # test suite in CI, including rust, kotlin, and swift.
 
-FROM rust:1.69.0
+FROM rust:1.77.1-bookworm
 
 MAINTAINER Jakub Janowski "jakub.janowski@nordsec.com"
 LABEL org.opencontainers.image.source=https://github.com/NordSecurity/uniffi-rs
@@ -23,7 +23,7 @@ SHELL ["/bin/bash", "-c"]
 RUN apt-get update -qq \
     && apt-get install -qy --no-install-recommends \
         clang \
-        openjdk-11-jdk-headless \
+        openjdk-17-jdk-headless \
         ruby \
         ruby-dev \
         zip \
@@ -45,11 +45,11 @@ RUN rustup self update \
 
 RUN mkdir -p /tmp/setup-swift \
     && cd /tmp/setup-swift \
-    && curl -o swift.tar.gz https://download.swift.org/swift-5.5-release/ubuntu1804/swift-5.5-RELEASE/swift-5.5-RELEASE-ubuntu18.04.tar.gz \
+    && curl -o swift.tar.gz https://download.swift.org/swift-6.0.3-release/debian12/swift-6.0.3-RELEASE/swift-6.0.3-RELEASE-debian12.tar.gz \
     # XXX TODO: should check a sha256sum or something here...
     && ls -la \
     && tar -xzf swift.tar.gz \
-    && mv swift-5.5-RELEASE-ubuntu18.04 /opt/swift \
+    && mv swift-6.0.3-RELEASE-debian12 /opt/swift \
     && cd ../ \
     && rm -rf ./setup-swift
 
