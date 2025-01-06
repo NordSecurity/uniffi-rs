@@ -41,7 +41,7 @@ pub use test::{run_script, run_test};
 
 /// The Swift bindings generated from a [`crate::ComponentInterface`].
 ///
-struct Bindings {
+pub struct Bindings {
     /// The contents of the generated `.swift` file, as a string.
     library: String,
     /// The contents of the generated `.h` file, as a string.

@@ -217,12 +217,12 @@ impl Object {
             type_: FfiType::RustArcPtr(self.name.to_string()),
         }];
         self.ffi_func_clone.return_type = Some(FfiType::RustArcPtr(self.name.to_string()));
+        self.ffi_func_clone.is_object_clone_function = true;
         self.ffi_func_free.arguments = vec![FfiArgument {
             name: "ptr".to_string(),
             type_: FfiType::RustArcPtr(self.name.to_string()),
         }];
         self.ffi_func_free.return_type = None;
-        self.ffi_func_free.is_object_free_function = true;
         if self.has_callback_interface() {
             self.ffi_init_callback = Some(FfiFunction::callback_init(
                 &self.module_path,

@@ -423,7 +423,7 @@ impl ComponentInterface {
             arguments: vec![],
             return_type: Some(FfiType::UInt32),
             has_rust_call_status_arg: false,
-            is_object_free_function: false,
+            is_object_clone_function: false,
         }
     }
 
@@ -440,7 +440,7 @@ impl ComponentInterface {
             }],
             return_type: Some(FfiType::RustBuffer(None)),
             has_rust_call_status_arg: true,
-            is_object_free_function: false,
+            is_object_clone_function: false,
         }
     }
 
@@ -457,7 +457,7 @@ impl ComponentInterface {
             }],
             return_type: Some(FfiType::RustBuffer(None)),
             has_rust_call_status_arg: true,
-            is_object_free_function: false,
+            is_object_clone_function: false,
         }
     }
 
@@ -474,7 +474,7 @@ impl ComponentInterface {
             }],
             return_type: None,
             has_rust_call_status_arg: true,
-            is_object_free_function: false,
+            is_object_clone_function: false,
         }
     }
 
@@ -497,7 +497,7 @@ impl ComponentInterface {
             ],
             return_type: Some(FfiType::RustBuffer(None)),
             has_rust_call_status_arg: true,
-            is_object_free_function: false,
+            is_object_clone_function: false,
         }
     }
 
@@ -522,7 +522,7 @@ impl ComponentInterface {
             ],
             return_type: None,
             has_rust_call_status_arg: false,
-            is_object_free_function: false,
+            is_object_clone_function: false,
         }
     }
 
@@ -539,7 +539,7 @@ impl ComponentInterface {
             }],
             return_type: return_ffi_type,
             has_rust_call_status_arg: true,
-            is_object_free_function: false,
+            is_object_clone_function: false,
         }
     }
 
@@ -554,7 +554,7 @@ impl ComponentInterface {
             }],
             return_type: None,
             has_rust_call_status_arg: false,
-            is_object_free_function: false,
+            is_object_clone_function: false,
         }
     }
 
@@ -569,7 +569,7 @@ impl ComponentInterface {
             }],
             return_type: None,
             has_rust_call_status_arg: false,
-            is_object_free_function: false,
+            is_object_clone_function: false,
         }
     }
 
@@ -805,7 +805,7 @@ impl ComponentInterface {
             arguments: vec![],
             return_type: Some(FfiType::UInt16),
             has_rust_call_status_arg: false,
-            is_object_free_function: false,
+            is_object_clone_function: false,
         })
     }
 

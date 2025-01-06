@@ -195,9 +195,10 @@ pub struct FfiFunction {
     pub(super) arguments: Vec<FfiArgument>,
     pub(super) return_type: Option<FfiType>,
     pub(super) has_rust_call_status_arg: bool,
-    /// Used by C# generator to differentiate the free function and call it with void*
+    /// Used by C# generator to differentiate the clone function and call it with void*
     /// instead of C# `SafeHandle` type. See <https://github.com/mozilla/uniffi-rs/pull/1488>.
-    pub(super) is_object_free_function: bool,
+    /// Update 2024-08-02: changed this from `is_free` to `is_clone`.
+    pub(super) is_object_clone_function: bool,
 }
 
 impl FfiFunction {
@@ -240,8 +241,8 @@ impl FfiFunction {
         self.has_rust_call_status_arg
     }
 
-    pub fn is_object_free_function(&self) -> bool {
-        self.is_object_free_function
+    pub fn is_object_clone_function(&self) -> bool {
+        self.is_object_clone_function
     }
 
     pub fn init(
@@ -267,7 +268,7 @@ impl Default for FfiFunction {
             arguments: Vec::new(),
             return_type: None,
             has_rust_call_status_arg: true,
-            is_object_free_function: false,
+            is_object_clone_function: false,
         }
     }
 }
