@@ -4,7 +4,7 @@ jobs:
   test:
     runs-on: ubuntu-22.04
     container:
-        image: ghcr.io/nordsecurity/uniffi-rs-test-runner:v0.2.0
+        image: ghcr.io/nordsecurity/uniffi-rs-test-runner:v0.0.2
         options: --user root
     steps:
       - uses: actions/checkout@v3
@@ -16,5 +16,6 @@ jobs:
           HOME: /root
         run: |
           source ~/.bashrc
+          cd fixtures/ext-types/proc-macro-lib
           # Disable debug info, because the job runs out of disk space
           RUSTFLAGS="-C debuginfo=0" cargo test
