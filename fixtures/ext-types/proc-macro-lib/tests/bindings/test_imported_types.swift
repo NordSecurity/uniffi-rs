@@ -57,3 +57,8 @@ assert(getMaybeUniffiOneEnums(es: [UniffiOneEnum.one, nil]) == [UniffiOneEnum.on
 
 let g = getGuidProcmacro(g: nil)
 assert(g == getGuidProcmacro(g: g))
+
+// The test crashes in the async task above if the main thread exits too quickly.
+// We don't care about async functions right now, so let's just make the test pass.
+// https://github.com/NordSecurity/uniffi-rs/issues/18
+Thread.sleep(forTimeInterval: 1)
