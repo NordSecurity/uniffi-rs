@@ -3,17 +3,43 @@
 //  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import Foundation
+import imported_types_lib
 
 let semaphore = DispatchSemaphore(value: 0)
-print("test 1")
+print("AAAAAAAAAAAAAAAAAAAAAAA 6.1")
+print("AAAAAAAAAAAAAAAAAAAAAAA 6.2")
 Task {
-    print("test 1.1")
+    print("BBBBBBBBBBBBBBBBBBBB 1")
+    // This async function comes from the `uniffi-one` crate
+    let uniffiOneEnum = await getUniffiOneAsync()
+    print("BBBBBBBBBBBBBBBBBBBB 2")
+    assert(uniffiOneEnum == UniffiOneEnum.one)
+    print("BBBBBBBBBBBBBBBBBBBB 3")
+
+    // This async function comes from the `proc-macro-lib` crate
+    let uniffiOneType = await getUniffiOneTypeAsync(t: UniffiOneType(sval: "hello"))
+    print("BBBBBBBBBBBBBBBBBBBB 4")
+    assert(uniffiOneType.sval == "hello")
+    print("BBBBBBBBBBBBBBBBBBBB 5")
+
     semaphore.signal()
-    print("test 1.2")
+
+    print("BBBBBBBBBBBBBBBBBBBB 6")
 }
-print("test 2")
+print("AAAAAAAAAAAAAAAAAAAAAAA 6.3")
 semaphore.wait()
-print("test 3")
+print("AAAAAAAAAAAAAAAAAAAAAAA 6.4")
+
+// let semaphore = DispatchSemaphore(value: 0)
+// print("test 1")
+// Task {
+//     print("test 1.1")
+//     semaphore.signal()
+//     print("test 1.2")
+// }
+// print("test 2")
+// semaphore.wait()
+// print("test 3")
 
 // print("AAAAAAAAAAAAAAAAAAAAAAA 1")
 // fflush(stdout)
