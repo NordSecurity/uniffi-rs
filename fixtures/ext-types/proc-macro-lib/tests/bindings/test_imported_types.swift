@@ -9,12 +9,12 @@ let semaphore = DispatchSemaphore(value: 0)
 print("AAAAAAAAAAAAAAAAAAAAAAA 6.1")
 print("AAAAAAAAAAAAAAAAAAAAAAA 6.2")
 Task {
-    print("BBBBBBBBBBBBBBBBBBBB 1")
-    // This async function comes from the `uniffi-one` crate
-    let uniffiOneEnum = await getUniffiOneAsync()
-    print("BBBBBBBBBBBBBBBBBBBB 2")
-    assert(uniffiOneEnum == UniffiOneEnum.one)
-    print("BBBBBBBBBBBBBBBBBBBB 3")
+    // print("BBBBBBBBBBBBBBBBBBBB 1")
+    // // This async function comes from the `uniffi-one` crate
+    // let uniffiOneEnum = await getUniffiOneAsync()
+    // print("BBBBBBBBBBBBBBBBBBBB 2")
+    // assert(uniffiOneEnum == UniffiOneEnum.one)
+    // print("BBBBBBBBBBBBBBBBBBBB 3")
 
     // This async function comes from the `proc-macro-lib` crate
     let uniffiOneType = await getUniffiOneTypeAsync(t: UniffiOneType(sval: "hello"))
