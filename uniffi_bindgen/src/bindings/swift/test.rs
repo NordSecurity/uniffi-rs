@@ -171,13 +171,13 @@ impl GeneratedSources {
 
 fn create_command(program: &str, options: &RunScriptOptions) -> Command {
     let mut command = Command::new(program);
-    if !options.show_compiler_messages {
-        // This prevents most compiler messages, but not remarks
-        command.arg("-suppress-warnings");
-        // This gets the remarks.  Note: swift will eventually get a `-suppress-remarks` argument,
-        // maybe we can eventually move to that
-        command.stderr(Stdio::null());
-    }
+    // if !options.show_compiler_messages {
+    //     // This prevents most compiler messages, but not remarks
+    //     command.arg("-suppress-warnings");
+    //     // This gets the remarks.  Note: swift will eventually get a `-suppress-remarks` argument,
+    //     // maybe we can eventually move to that
+    //     command.stderr(Stdio::null());
+    // }
     command
 }
 
