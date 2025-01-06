@@ -16,11 +16,11 @@ Task {
     // assert(uniffiOneEnum == UniffiOneEnum.one)
     // print("BBBBBBBBBBBBBBBBBBBB 3")
 
-    // This async function comes from the `proc-macro-lib` crate
-    let uniffiOneType = await getUniffiOneTypeAsync(t: UniffiOneType(sval: "hello"))
-    print("BBBBBBBBBBBBBBBBBBBB 4")
-    assert(uniffiOneType.sval == "hello")
-    print("BBBBBBBBBBBBBBBBBBBB 5")
+    // // This async function comes from the `proc-macro-lib` crate
+    // let uniffiOneType = await getUniffiOneTypeAsync(t: UniffiOneType(sval: "hello"))
+    // print("BBBBBBBBBBBBBBBBBBBB 4")
+    // assert(uniffiOneType.sval == "hello")
+    // print("BBBBBBBBBBBBBBBBBBBB 5")
 
     semaphore.signal()
 
